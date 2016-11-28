@@ -1,7 +1,7 @@
 package model;
 
 public class DeusEx extends CarteAction {
-     private String nomDeusEx;
+	protected String nomDeusEx;
    //le constructeur
      public void DeusEx(){
    	  
