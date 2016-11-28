@@ -1,13 +1,13 @@
 package model;
 
 public class Croyant extends CarteAction{
-  private String nomCroyant;
-  private int nombrePuissance;
-  private int numeroCarteRattacher;
+  protected String nomCroyant;
+  protected int nombrePuissance;
+  protected int numeroCarteRattacher;
   //le constructeur
-  public void Croyant(){
+  //public void Croyant(){
 	  
-  }
+  //}
   //capacite 
   public void capaciteCroyant(){
 	  
