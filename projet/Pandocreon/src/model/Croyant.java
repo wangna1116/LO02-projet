@@ -1,7 +1,7 @@
 package model;
 
 public class Croyant extends CarteAction{
-  protected String nomCroyant;
+  //protected String nom;
   protected int nombrePuissance;
   protected int numeroCarteRattacher;
   //le constructeur

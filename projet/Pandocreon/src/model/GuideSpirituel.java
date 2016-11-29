@@ -1,7 +1,7 @@
 package model;
 
 public class GuideSpirituel extends CarteAction{
-  protected String nomGuide;
+  //protected String nom;
   // les croyants qui a deja ramene
   protected int[] nombreCroyantRamener;
   //le nombre des croyant il peut ramener

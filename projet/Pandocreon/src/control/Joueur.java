@@ -8,8 +8,8 @@ public class Joueur {
  private int[] carteEnMain;
  private String nomDivinite;
  //le constructeur
- public void Joueur(){
-	 
+ public  Joueur(int numero){
+	 this.numeroJoueur=numero;
  }
  public void piocherDivinite(){
 	 
@@ -37,5 +37,9 @@ public class Joueur {
  }
  public void sacrifierCarte(){
 	 
+ }
+ //test si les joueurs sont creer?
+ public void test(){
+	 System.out.print(this.numeroJoueur);
  }
 }
