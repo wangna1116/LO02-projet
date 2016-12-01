@@ -2,7 +2,8 @@ package divinite;
 
 public class Romtec extends Divinite {
 	//constructeur
-	  public Romtec(String nom){
-		  this.nom=nom;
+	  public Romtec(){
+		  this.setNom("Romtec");
+		  this.setDiviniteOrigine("Cr¨¦puscule");
 	  }
 }

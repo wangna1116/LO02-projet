@@ -3,7 +3,8 @@ package divinite;
 
 public class Drinded extends Divinite {
 	//constructeur
-	  public Drinded(String nom){
-		  this.nom=nom;
+	  public Drinded(){
+		  this.setNom("Drinded");
+		  this.setDiviniteOrigine("Jour");
 	  }
 }

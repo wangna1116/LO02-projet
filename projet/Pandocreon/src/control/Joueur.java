@@ -8,19 +8,27 @@ public class Joueur {
  private int numeroJoueur;
  private int pointActionJour;
  private int pointActionNuit;
- private int pointActionNeant;
+ private int pointActionN¨¦ant;
  private Divinite divinite;
- private List carteEnMain;
+ 
+private List carteEnMain;
  //le constructeur
  public  Joueur(int numero){
 	 this.numeroJoueur=numero;
 	 this.carteEnMain=new ArrayList();
+	 this.pointActionJour=0;
+	 this.pointActionNuit=0;
+	 this.pointActionN¨¦ant=0;
  }
  //piocher divinite au debut du jeu
  public void piocherDivinite(Divinite divinitePioche){
 	 this.divinite=divinitePioche;
-	 System.out.println("Joueur"+this.numeroJoueur+" pioche divinite:"+this.divinite.getNomDivinite());
+	 System.out.println("Joueur"+this.numeroJoueur+" pioche divinite:"+this.divinite.getNom());
  }
+ //get divinite
+ public Divinite getDivinite() {
+		return divinite;
+}
  public void defausserCarte(){
 	 
  }
@@ -53,5 +61,33 @@ public class Joueur {
  //test si les joueurs sont creer?
  public void test(){
 	 System.out.print(this.numeroJoueur);
+ }
+ 
+ public int getPointActionJour() {
+	return pointActionJour;
+}
+public void setPointActionJour(int pointActionJour) {
+	this.pointActionJour = pointActionJour;
+}
+public int getPointActionNuit() {
+	return pointActionNuit;
+}
+public void setPointActionNuit(int pointActionNuit) {
+	this.pointActionNuit = pointActionNuit;
+}
+public int getPointActionN¨¦ant() {
+	return pointActionN¨¦ant;
+}
+public void setPointActionN¨¦ant(int pointActionNeant) {
+	this.pointActionN¨¦ant = pointActionNeant;
+}
+
+public int getNumeroJoueur() {
+	return numeroJoueur;
+}
+
+//Tour du joueur
+ public void tourDuJoueur(){
+	 
  }
 }

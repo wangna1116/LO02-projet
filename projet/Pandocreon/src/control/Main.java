@@ -5,13 +5,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		// creer un nouvel jeu
-		Partie tour=new Partie();
+		Partie partie=new Partie();
 		//creer les joueurs
-		tour.creerJoueur();
+		partie.creerJoueur();
 		//chaque joueur pioche une divinite
-		tour.piocherDivinite();
+		partie.piocherDivinite();
 		//distruber cartes au debut
-		tour.distribuerCarteAuDebut();
+		partie.distribuerCarteAuDebut();
+		//commencer un nouvel tour
+		partie.commencerNouvelTour();
 		
     }
 

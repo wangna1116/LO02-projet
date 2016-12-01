@@ -1,5 +1,6 @@
 package control;
 import java.util.Scanner;
+import java.util.Random;
 import java.util.Iterator;
 
 import carteAction.CartePile;
@@ -17,6 +18,7 @@ public class Partie {
    public Partie(){
 	   //creer tout les cartes actions dans le carte pile
 	   //Touiller les cartes actions
+	   System.out.println("Bienvenu sur Pandocreon!");
 	   carteEnJeu=new CartePile();
 	   carteEnJeu.touiller();
 	   System.out.println("Tout les cartes dans le pile sont crees et touilles!");
@@ -26,6 +28,7 @@ public class Partie {
 	   diviniteEnJeu.touiller();
 	   System.out.println("Tout les divinites dans le pile sont crees et touilles!");
    }
+   //creer joueurs au debut
    public void creerJoueur(){
 		  this.joueurs=new ArrayList();
 		  System.out.println("Combien de joueurs virtuels vous voulez jouer avec?");
@@ -48,16 +51,28 @@ public class Partie {
 		   j.piocherDivinite(diviniteEnJeu.tirerCarteDuDessus());
 	       }
    }
+    
+   
    //conmmencer un nouvel tour
    public void commencerNouvelTour(){
 	   Joueur premierJoueurDuTour=(Joueur)joueurs.get(0);
 	   int i=premierJoueurDuTour.getNumero();
-	   
+	   //lancer du de
+	   System.out.println("Nouvel tour! Joueur"+i+" lance du de!");
+	   Random r=new Random();
+	   int resultatDe = r.nextInt(3)%(3-1+1) + 1;
+	   //distribuer point d'action
+	   distribuerPointAction(resultatDe);
+	   //Chaque joueur joue son tour
 	   Iterator it=joueurs.iterator();
        while(it.hasNext()){
 	   Joueur j=(Joueur) it.next();
-	   j.piocherDivinite(diviniteEnJeu.tirerCarteDuDessus());
+	   j.tourDuJoueur();
        }
+       //changer l'ordre des joueurs pour le prochain tour
+       joueurs.remove(0);
+       joueurs.add(premierJoueurDuTour);
+       System.out.println("On a fini ce tour!");
    }
    //distribuer cartes au debut
    public void distribuerCarteAuDebut(){
@@ -70,6 +85,55 @@ public class Partie {
        }
        System.out.println("7 cartes d'Action sont distribuees a tous les joueurs!");
 	   
+   }
+   //distribuer points d'action
+   public void distribuerPointAction(int resultat){
+	   if(resultat==1){
+		   System.out.println("Face Jour!");
+		   Iterator it=joueurs.iterator();
+	       while(it.hasNext()){
+		      Joueur j=(Joueur) it.next();
+		      if(j.getDivinite().getDiviniteOrigine()=="Jour"){
+			      j.setPointActionJour(j.getPointActionJour()+2);
+			      System.out.println("Donner 2 points Jour au joueur"+j.getNumeroJoueur());
+		      }
+		      else if(j.getDivinite().getDiviniteOrigine()=="Aube"){
+		    	  j.setPointActionJour(j.getPointActionJour()+1);
+			      System.out.println("Donner 1 points Jour au joueur"+j.getNumeroJoueur());
+		      }
+	       }
+		   
+	   }
+	   else if(resultat==2){
+		   System.out.println("Face Nuit!");
+		   Iterator it=joueurs.iterator();
+	       while(it.hasNext()){
+		      Joueur j=(Joueur) it.next();
+		      if(j.getDivinite().getDiviniteOrigine()=="Nuit"){
+			      j.setPointActionNuit(j.getPointActionNuit()+2);
+			      System.out.println("Donner 2 points Nuit au joueur"+j.getNumeroJoueur());
+		      }
+		      else if(j.getDivinite().getDiviniteOrigine()=="Cr¨¦puscule"){
+		    	  j.setPointActionNuit(j.getPointActionNuit()+1);
+			      System.out.println("Donner 1 points Nuit au joueur"+j.getNumeroJoueur());
+		      }
+	       }
+	   }
+	   else if(resultat==3){
+		   System.out.println("Face N¨¦ant!");
+		   Iterator it=joueurs.iterator();
+	       while(it.hasNext()){
+		      Joueur j=(Joueur) it.next();
+		      if(j.getDivinite().getDiviniteOrigine()=="Aube"){
+			      j.setPointActionN¨¦ant(j.getPointActionN¨¦ant()+1);
+			      System.out.println("Donner 1 points N¨¦ant au joueur"+j.getNumeroJoueur());
+		      }
+		      else if(j.getDivinite().getDiviniteOrigine()=="Cr¨¦puscule"){
+		    	  j.setPointActionN¨¦ant(j.getPointActionN¨¦ant()+1);
+			      System.out.println("Donner 1 points N¨¦ant au joueur"+j.getNumeroJoueur());
+		      }
+	       }
+	   }
    }
    
    public void eliminerJoueur(){

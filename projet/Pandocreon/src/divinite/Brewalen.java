@@ -2,8 +2,10 @@ package divinite;
 
 
 public class Brewalen extends Divinite {
+	  
       //constructeur
-	  public Brewalen(String nom){
-		  this.nom=nom;
+	  public Brewalen(){
+		  this.setNom("Brewalen");
+		  this.setDiviniteOrigine("Jour");
 	  }
 }
