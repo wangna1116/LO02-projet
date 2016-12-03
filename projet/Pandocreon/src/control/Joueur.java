@@ -1,8 +1,7 @@
 package control;
 import divinite.Divinite;
 import carteAction.CarteAction;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Joueur {
  private int numeroJoueur;
@@ -10,8 +9,8 @@ public class Joueur {
  private int pointActionNuit;
  private int pointActionN¨¦ant;
  private Divinite divinite;
- 
-private List carteEnMain;
+ private List carteEnMain;
+ private List carteEnjeu;
  //le constructeur
  public  Joueur(int numero){
 	 this.numeroJoueur=numero;
@@ -30,7 +29,11 @@ private List carteEnMain;
 		return divinite;
 }
  public void defausserCarte(){
-	 
+	   //choisir le numero du carte vous voulez defausser
+	   System.out.println("Saisir le numero du carte vous voulez defausser!");
+	   Scanner input=new Scanner(System.in);
+	   int i=input.nextInt();
+	   carteEnMain.remove(i);
  }
  //piocher carteAction
  public void piocherCarte(CarteAction carte){
@@ -40,19 +43,10 @@ private List carteEnMain;
  public int getNumero(){
 	 return this.numeroJoueur;
  }
- public void poserCarteCroyant(){
+ public void utiliserCarte(){
 	 
  }
- public void poserCarteGuide(){
-	 
- }
- public void poserCarteApocalypse(){
-	 
- }
- public void poserCarteDeusEx(){
-	 
- }
- public void poserCarteDeusExHorsTour(){
+public void utiliserCapacite(){
 	 
  }
  public void sacrifierCarte(){
@@ -86,8 +80,40 @@ public int getNumeroJoueur() {
 	return numeroJoueur;
 }
 
-//Tour du joueur
- public void tourDuJoueur(){
-	 
- }
+public List getCarteEnMain() {
+	return carteEnMain;
+}
+public void setCarteEnMain(List carteEnMain) {
+	this.carteEnMain = carteEnMain;
+}
+public void setNumeroJoueur(int numeroJoueur) {
+	this.numeroJoueur = numeroJoueur;
+}
+public void setDivinite(Divinite divinite) {
+	this.divinite = divinite;
+}
+//choisir une action
+public void Action(int numeroDuAction){
+	switch (numeroDuAction) {
+	case 0:
+		defausserCarte();
+		break;
+	case 1:
+		
+		break;
+	case 2:
+		utiliserCarte();
+		break;
+	case 3:
+		sacrifierCarte();
+		break;
+	case 4:
+		utiliserCapacite();
+		break;
+	default:
+		//
+		break;
+	}
+}
+
 }

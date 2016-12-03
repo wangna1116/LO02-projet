@@ -10,7 +10,8 @@ public class test {
 		//Partie tour=new Partie();
 		//tour.creerJoueur();
 		 Random r=new Random();
-		 int resultatDe = r.nextInt(3)%(3-1+1) + 1;
+		 int resultat = r.nextInt(2);
+		 int resultatDe=(int)Math.floor(resultat);
 		 System.out.println(resultatDe);
 		
 		

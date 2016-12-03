@@ -8,4 +8,5 @@ public class Brewalen extends Divinite {
 		  this.setNom("Brewalen");
 		  this.setDiviniteOrigine("Jour");
 	  }
+	  
 }
